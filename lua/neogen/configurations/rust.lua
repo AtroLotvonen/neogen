@@ -103,6 +103,6 @@ return {
     template = template
         :config({ use_default_comment = true })
         :add_annotation("rustdoc")
-        :add_default_annotation("rust_alternative")
+        :add_annotation("rust_alternative")
         :add_default_annotation("rust_extensive"),
 }
