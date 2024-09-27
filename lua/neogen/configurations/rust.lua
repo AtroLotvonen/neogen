@@ -49,18 +49,12 @@ return {
                         local nodes = nodes_utils:matching_nodes_from(node, tree)
                         local res = extractors:extract_from_matched(nodes)
 
-                        -- if nodes["generic_type"] then
-                        --
-                        --     if not vim.tbl_isempty(left) and not vim.tbl_isempty(left[1]:field("attribute")) then
-                        --         --Adding it to the list
-                        --         local left_attribute = assignment:field("left")[1]:field("attribute")[1]
-                        --         left_attribute = helpers.get_node_text(left_attribute)[1]
-                        --
-                        --         if not vim.startswith(left_attribute, "_") then
-                        --             table.insert(results[i.ClassAttribute], left_attribute)
-                        --         end
-                        --     end
-                        -- end
+                        if res.generic_type and string.sub(res.generic_type[1], 1, 6) == "Result" then
+                            res.generic_type = "Result"
+                        else
+                            res.generic_type = {}
+                        end
+
                         return res
                     end,
                 },
