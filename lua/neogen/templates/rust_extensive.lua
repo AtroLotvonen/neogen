@@ -7,7 +7,9 @@ return {
     { nil, "/ $1", { no_results = true, type = { "func", "class" } } },
 
     { nil, "/ $1", { type = { "func", "class" } } },
-    { nil, "/test", { type = { "class", "func" } } },
+    { nil, "/", { type = { "class", "func" } } },
+    { nil, "/ # Arguments", { type = { "class", "func" } } },
+    { nil, "/", { type = { "class", "func" } } },
     { i.Parameter, "/ * `%s`: $1", { type = { "class" } } },
     { i.Parameter, "/ * `%s`: $1", { type = { "func" } } },
 }
