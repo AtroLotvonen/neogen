@@ -12,7 +12,7 @@ return {
     { nil, "/", { type = { "class", "func" } } },
     { i.Parameter, "/ * `%s`: $1", { type = { "class" } } },
     { i.Parameter, "/ * `%s`: $1", { type = { "func" } } },
-    { i.ReturnTypeHint, "/ # ReturnTypeHint", { type = { "func" } } },
-    { i.ReturnTypeHint, "/", { type = { "func" } } },
-    { i.ReturnTypeHint, "/ * `%s`: $1", { type = { "func" } } },
+    -- { i.HasThrow, "/ # Errors", { type = { "func" } } },
+    -- { i.HasThrow, "/", { type = { "func" } } },
+    -- { i.HasThrow, "/ * `%s`: $1", { type = { "func" } } },
 }

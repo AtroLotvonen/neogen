@@ -1,6 +1,7 @@
 local extractors = require("neogen.utilities.extractors")
 local i = require("neogen.types.template").item
 local nodes_utils = require("neogen.utilities.nodes")
+local helpers = require("neogen.utilities.helpers")
 local template = require("neogen.template")
 
 return {
@@ -43,17 +44,21 @@ return {
                                 retrieve = "first",
                                 node_type = "generic_type",
                                 extract = true,
-                                as = i.ReturnTypeHint,
+                                -- as = i.ReturnTypeHint,
                             },
                         }
                         local nodes = nodes_utils:matching_nodes_from(node, tree)
                         local res = extractors:extract_from_matched(nodes)
-
-                        if res.generic_type and string.sub(res.generic_type[1], 1, 6) == "Result" then
-                            res.generic_type = "Result"
-                        else
-                            res.generic_type = {}
-                        end
+                        -- vim.notify("ooooyyoits")
+                        -- if nodes.generic_type then
+                        --     -- vim.notify("gennee")
+                        --     -- vim.notify(nodes.generic_type[1])
+                        --     local typ = nodes.generic_type[1]
+                        --     local return_type = helpers.get_node_text(typ)[1]
+                        --     if string.sub(return_type, 1, 6) == "Result" then
+                        --         res[i.HasThrow] = return_type
+                        --     end
+                        -- endvkk
 
                         return res
                     end,
