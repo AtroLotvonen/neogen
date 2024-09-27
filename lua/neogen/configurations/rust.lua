@@ -39,6 +39,17 @@ return {
                                     },
                                 },
                             },
+                            {
+                                retrieve = "first",
+                                node_type = "return_type",
+                                subtree = {
+
+                                    retrieve = "first",
+                                    node_type = "type_identifier",
+                                    extract = true,
+                                    as = i.ReturnTypeHint,
+                                },
+                            },
                         }
                         local nodes = nodes_utils:matching_nodes_from(node, tree)
                         local res = extractors:extract_from_matched(nodes)
@@ -92,5 +103,6 @@ return {
     template = template
         :config({ use_default_comment = true })
         :add_annotation("rustdoc")
-        :add_default_annotation("rust_alternative"),
+        :add_default_annotation("rust_alternative")
+        :add_default_annotation("rust_extensive"),
 }
